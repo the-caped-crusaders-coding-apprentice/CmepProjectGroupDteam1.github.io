@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="el.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="back"></div>
+    <div class="front"></div>
+    <h1 class="heading">Sustainable Use of Public Comodetie</h1>
+    <div class="first">
+        <div class="blockone">
+            <img src="water.png" alt="">
+            <h1>Water</h1>
+            <p>We need water for drinking, cooking, sanitation and washing. Water is also used for the production of goods, such as food products as well as manufacturing. Sea water makes up 97% of water on our planet, with the remaining 3% being fresh water. Less than half of that can be used for human consumption.</p>
+        </div>
+        <div class="blocktwo">
+            <img src="socket.png" alt="">
+            <h1>Electricity</h1>
+            <p>In our homes, we rely on electricity to power our lights, appliances, and electronics. Many of us also use electricity to provide our homes with hot water, heat, and air conditioning. As we use more electricity in our homes, our electric bills rise.</p>
+        </div>
+    </div>
+    <div class="container">
+        <h1>It is not too late to change.</h1>
+        <div class="img-comp-container">
+            <div class="img-comp-img">
+              <img src="wired-uk-climate-change-facts-5.jpg" width="1500" height="700">
+            </div>
+            <div class="img-comp-img img-comp-overlay">
+              <img src="images.jpg" width="1500" height="700">
+            </div>
+          </div>
+    </div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/1-g73ty9v04" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </iframe>
+    <div class="second">
+        <div class="first">
+            <div class="blockthree">
+                <img src="planet-earth.png" alt="">
+                <p class="white">2016 was the first time Earth’s atmosphere had 400 parts per million CO2, creating the biggest scorcher since 1850. Think that’s crazy? The latest atmospheric CO2 concentration might be the highest our planet has had in the last three million years.</p>
+            </div>
+        </div>
+    </div>
+    <h1 class="">save our resources</h1>
+    <div class="pics">
+        <img src="w1.jpg" alt="">
+        <img src="e1.jpg" alt="">
+        <img src="w2.jpg" alt="">
+        <img src="e2.jpg" alt="">
+        <img src="w1.jpg" alt="">
+        <img src="e1.jpg" alt="">
+        <img src="w2.jpg" alt="">
+        <img src="e1.jpg" alt="">
+        <img src="w1.jpg" alt="">
+    </div>
+    <h1 class="work">Some of our work</h1>
+    <div class="proof">
+      <img id="pic1" src="27804e9b-663c-4fab-9730-ab2535222a57.jpg" alt="">
+      <img id="pic2" src="17d5b10d-cb62-436e-868e-6a9265a17086.jpg" alt="">
+      <img id="pic4" src="514c3717-f949-438f-8aba-ed66e02910bc.jpg" alt="">
+      <img id="pic3" src="Untitled-1.png" alt="">
+      <img id="pic5" src="eff1fc58-2b55-4033-b588-d14454e71529.jpg" alt="">
+      <img id="pic6" src="4ed8a924-592c-4e33-81ed-0eb82539458c.jpg" alt="">
+    </div>
+    <div class="links">
+      <h1 class="lin">Some useful resources</h1>
+      <a href="https://loadshedding.eskom.co.za/" class="li">eskom</a>
+      <a href="https://www.westerncape.gov.za/general-publication/find-out-why-we-should-save-water" class="li">Save water Government tips.</a>
+      <a href="https://coolcalifornia.arb.ca.gov/tip/water-lg" class="li">Water-saving Strategies.</a>
+      <a href="https://www.powertime.co.za/en/info/smartpowertips" class="li">Energy saving tips.</a>
+    </div>
+    <footer>
+      <p>© group 1 CMEP 2021 part B</p>
+    </footer>
+</body>
+
+<script>
+    function initComparisons() {
+  var x, i;
+  /* Find all elements with an "overlay" class: */
+  x = document.getElementsByClassName("img-comp-overlay");
+  for (i = 0; i < x.length; i++) {
+    /* Once for each "overlay" element:
+    pass the "overlay" element as a parameter when executing the compareImages function: */
+    compareImages(x[i]);
+  }
+  function compareImages(img) {
+    var slider, img, clicked = 0, w, h;
+    /* Get the width and height of the img element */
+    w = img.offsetWidth;
+    h = img.offsetHeight;
+    /* Set the width of the img element to 50%: */
+    img.style.width = (w / 2) + "px";
+    /* Create slider: */
+    slider = document.createElement("DIV");
+    slider.setAttribute("class", "img-comp-slider");
+    /* Insert slider */
+    img.parentElement.insertBefore(slider, img);
+    /* Position the slider in the middle: */
+    slider.style.top = (h / 2) - (slider.offsetHeight / 2) + "px";
+    slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
+    /* Execute a function when the mouse button is pressed: */
+    slider.addEventListener("mousedown", slideReady);
+    /* And another function when the mouse button is released: */
+    window.addEventListener("mouseup", slideFinish);
+    /* Or touched (for touch screens: */
+    slider.addEventListener("touchstart", slideReady);
+     /* And released (for touch screens: */
+    window.addEventListener("touchend", slideFinish);
+    function slideReady(e) {
+      /* Prevent any other actions that may occur when moving over the image: */
+      e.preventDefault();
+      /* The slider is now clicked and ready to move: */
+      clicked = 1;
+      /* Execute a function when the slider is moved: */
+      window.addEventListener("mousemove", slideMove);
+      window.addEventListener("touchmove", slideMove);
+    }
+    function slideFinish() {
+      /* The slider is no longer clicked: */
+      clicked = 0;
+    }
+    function slideMove(e) {
+      var pos;
+      /* If the slider is no longer clicked, exit this function: */
+      if (clicked == 0) return false;
+      /* Get the cursor's x position: */
+      pos = getCursorPos(e)
+      /* Prevent the slider from being positioned outside the image: */
+      if (pos < 0) pos = 0;
+      if (pos > w) pos = w;
+      /* Execute a function that will resize the overlay image according to the cursor: */
+      slide(pos);
+    }
+    function getCursorPos(e) {
+      var a, x = 0;
+      e = (e.changedTouches) ? e.changedTouches[0] : e;
+      /* Get the x positions of the image: */
+      a = img.getBoundingClientRect();
+      /* Calculate the cursor's x coordinate, relative to the image: */
+      x = e.pageX - a.left;
+      /* Consider any page scrolling: */
+      x = x - window.pageXOffset;
+      return x;
+    }
+    function slide(x) {
+      /* Resize the image: */
+      img.style.width = x + "px";
+      /* Position the slider: */
+      slider.style.left = img.offsetWidth - (slider.offsetWidth / 2) + "px";
+    }
+  }
+}
+initComparisons();
+</script>
+</html>
